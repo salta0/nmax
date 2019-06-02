@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require './lib/nmax'
+
+n = ARGV[0]
+unless n.match(/\A\d+\z/)
+  puts "В качестве аргумента должно быть передано число"
+  return
+end
+
+nm = NMax.new(n.to_i)
+
+$stdin.each do |line|
+  nm.find_max(line)
+end
+
+puts nm.result
